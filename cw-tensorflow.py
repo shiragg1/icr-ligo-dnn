@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 #set up path to directory, replace with path on your computer
-p = Path('/home/shira/Documents/icr/cw-dnn/cw-data/')
+p = Path('/home/shira/Documents/icr/cw-dnn/')
 
 #load data
 training_data = np.load(p / "training-data.npy")
@@ -21,7 +21,9 @@ class_names = ['no_wave', 'wave']
 
 #set up the layers
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(256, activation='relu'),
+    tf.keras.layers.Dense(256, activation='relu'),
+    tf.keras.layers.Dense(256, activation='relu'),
     tf.keras.layers.Dense(2)
 ])
 
