@@ -26,7 +26,6 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(1024, activation='relu'),
     tf.keras.layers.Dense(1024, activation='relu'),
     tf.keras.layers.Dense(1024, activation='relu'),
-    tf.keras.layers.Dense(1024, activation='relu'),
     tf.keras.layers.Dense(2)
 ])
 
@@ -36,7 +35,7 @@ model.compile(optimizer='adam',
     metrics=['accuracy'])
 
 #train the model
-model.fit(training_data, training_labels, epochs=15)
+model.fit(training_data, training_labels, epochs=10)
 
 #test the accuracy
 test_loss, test_acc = model.evaluate(testing_data, testing_labels, verbose=2)
