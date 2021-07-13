@@ -21,9 +21,12 @@ class_names = ['no_wave', 'wave']
 
 #set up the layers
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(256, activation='relu'),
-    tf.keras.layers.Dense(256, activation='relu'),
-    tf.keras.layers.Dense(256, activation='relu'),
+    tf.keras.layers.Dense(1024, activation='relu'),
+    tf.keras.layers.Dense(1024, activation='relu'),
+    tf.keras.layers.Dense(1024, activation='relu'),
+    tf.keras.layers.Dense(1024, activation='relu'),
+    tf.keras.layers.Dense(1024, activation='relu'),
+    tf.keras.layers.Dense(1024, activation='relu'),
     tf.keras.layers.Dense(2)
 ])
 
@@ -33,7 +36,7 @@ model.compile(optimizer='adam',
     metrics=['accuracy'])
 
 #train the model
-model.fit(training_data, training_labels, epochs=10)
+model.fit(training_data, training_labels, epochs=15)
 
 #test the accuracy
 test_loss, test_acc = model.evaluate(testing_data, testing_labels, verbose=2)
@@ -43,7 +46,7 @@ print('\nTest accuracy:', test_acc)
 probability_model = tf.keras.Sequential([model, tf.keras.layers.Softmax()])
 predictions = probability_model.predict(testing_data)
 
-print(predictions[2])
-print(np.argmax(predictions[2]))
-print(testing_labels[2])
+print(predictions[0])
+print(np.argmax(predictions[0]))
+print(testing_labels[0])
 
